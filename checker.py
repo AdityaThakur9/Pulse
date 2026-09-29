@@ -14,7 +14,7 @@ def check_site(url):
 
 if __name__ == "__main__":
     status_results=[]
-    url= "https://www.google.com"
+    url= "https://thisisnotarealsite12345.com"
     for i in range (3):
         answer= check_site(url)
         status_results.append(answer)
@@ -25,6 +25,9 @@ if __name__ == "__main__":
         if elapsed is not None:
             elapsed_times.append(elapsed)
     avg= average(elapsed_times)
-    print("Average Elapsed Time:", avg)
+    if avg is None:
+        print("No valid elapsed times to calculate average.")
+    else:
+        print("Average Elapsed Time:", avg)
     print(check_site("https://www.google.com"))
     print(check_site("https://thisisnotarealsite12345.com"))

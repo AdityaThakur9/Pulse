@@ -2,7 +2,7 @@ def average(x):
 	total=sum(x)
 	length= len(x)
 	if length == 0:
-		return 0
+		return None
 	avr=total/length
 	return avr
 if __name__ == "__main__":
