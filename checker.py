@@ -14,20 +14,23 @@ def check_site(url):
 
 if __name__ == "__main__":
     status_results=[]
-    url= "https://thisisnotarealsite12345.com"
-    for i in range (3):
+    urls= ["https://thisisnotarealsite12345.com", "https://www.google.com", "https://github.com", "https://www.google.com/notavailable"]
+    for url in urls:
         answer= check_site(url)
         status_results.append(answer)
 
     elapsed_times=[]
-    for u in status_results:
-        elapsed= u["elapsed_time"]
+    for result in status_results:
+        elapsed= result["elapsed_time"]
         if elapsed is not None:
             elapsed_times.append(elapsed)
+        print(f" {result['url']} {result['status_code']} {result['status'].upper()}  {result['elapsed_time']}  {result['error']}")
     avg= average(elapsed_times)
     if avg is None:
         print("No valid elapsed times to calculate average.")
     else:
         print("Average Elapsed Time:", avg)
-    print(check_site("https://www.google.com"))
-    print(check_site("https://thisisnotarealsite12345.com"))
+    #print(check_site("https://www.google.com"))
+    #print(check_site("https://thisisnotarealsite12345.com"))
+
+    
